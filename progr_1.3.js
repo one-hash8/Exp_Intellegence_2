@@ -255,6 +255,7 @@ psychoJS.start({
     {'name': 'raven_1/raven_8.png', 'path': 'raven_1/raven_8.png'},
     {'name': 'conf_pics/097.png', 'path': 'conf_pics/097.png'},
     {'name': 'raven_1/raven_9.png', 'path': 'raven_1/raven_9.png'},
+    {'name': 'pics/Happiness/Happy_8.png', 'path': 'pics/Happiness/Happy_8.png'},
     {'name': 'conf_pics/103.png', 'path': 'conf_pics/103.png'},
     {'name': 'raven_1/raven_10.png', 'path': 'raven_1/raven_10.png'},
     {'name': 'pics/Sadness/sadness_3.png', 'path': 'pics/Sadness/sadness_3.png'},
@@ -7458,47 +7459,25 @@ async function sendDataToOnlineExcel(data) {
       isCompleted: true
     };
 
-    // Check if running on localhost (for CORS bypass)
-    const isLocalhost = window.location.hostname === 'localhost' || 
-                        window.location.hostname === '127.0.0.1' ||
-                        window.location.hostname === '';
-    
-    // For localhost, use no-cors mode to bypass CORS restrictions
+    // Always use no-cors mode to bypass CORS restrictions
     // Note: In no-cors mode, you can't read the response, but data will be sent
-    if (isLocalhost) {
-      try {
-        // Use no-cors mode - data will be sent but response won't be readable
-        await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
-          method: 'POST',
-          mode: 'no-cors', // This bypasses CORS but you can't read the response
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload)
-        });
-        
-        // With no-cors, response.ok is always false, but request is sent
-        return true; // Assume success since we can't check with no-cors
-      } catch (error) {
-        console.error('Error sending data (even with no-cors):', error);
-        return false;
-      }
-    } else {
-      // Normal mode for production (not localhost)
-      const response = await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+    // This works for both localhost and production hosting
+    try {
+      await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
         method: 'POST',
+        mode: 'no-cors', // This bypasses CORS but you can't read the response
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload)
       });
       
-      if (response.ok) {
-        return true;
-      } else {
-        console.error('Failed to send data:', response.statusText);
-        return false;
-      }
+      // With no-cors, response.ok is always false, but request is sent
+      // Assume success since we can't check with no-cors
+      return true;
+    } catch (error) {
+      console.error('Error sending data:', error);
+      return false;
     }
   } catch (error) {
     console.error('Error sending data to online Excel:', error);
