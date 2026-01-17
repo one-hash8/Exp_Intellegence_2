@@ -255,7 +255,6 @@ psychoJS.start({
     {'name': 'raven_1/raven_8.png', 'path': 'raven_1/raven_8.png'},
     {'name': 'conf_pics/097.png', 'path': 'conf_pics/097.png'},
     {'name': 'raven_1/raven_9.png', 'path': 'raven_1/raven_9.png'},
-    {'name': 'pics/Happiness/happy_8.png', 'path': 'pics/Happiness/happy_8.png'},
     {'name': 'conf_pics/103.png', 'path': 'conf_pics/103.png'},
     {'name': 'raven_1/raven_10.png', 'path': 'raven_1/raven_10.png'},
     {'name': 'pics/Sadness/sadness_3.png', 'path': 'pics/Sadness/sadness_3.png'},
