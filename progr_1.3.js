@@ -103,7 +103,7 @@ let instr_1Clock, text, key_resp;
 let instr_insightClock, text_3, key_resp_3;
 let aha_instrClock, text_27, key_resp_32;
 let instr_raven_1Clock, text_instr_raven_1, key_resp_7;
-let raven_1_testtClock, key_raven_test, img_raven_1_test, text_11;
+let raven_1_testtClock, key_raven_test, img_raven_1_test;
 let insight_fake_solveClock, text_insight_fake_solve, key_insight_fake_solve;
 let aha_fakeClock, aha_fake_2, aha_fake_key;
 let faces1_instrClock, text_9, key_resp_10;
@@ -246,6 +246,7 @@ psychoJS.start({
     {'name': 'conf_pics/044.png', 'path': 'conf_pics/044.png'},
     {'name': 'raven_1/raven_5.png', 'path': 'raven_1/raven_5.png'},
     {'name': 'conf_pics/118.png', 'path': 'conf_pics/118.png'},
+    {'name': 'conf_pics/112.png', 'path': 'conf_pics/112.png'},
     {'name': 'raven_1/raven_6.png', 'path': 'raven_1/raven_6.png'},
     {'name': 'pics/Surprise!/surprise_8.png', 'path': 'pics/Surprise!/surprise_8.png'},
     {'name': 'conf_pics/058.png', 'path': 'conf_pics/058.png'},
@@ -506,17 +507,6 @@ async function experimentInit() {
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -1.0 
-  });
-  text_11 = new visual.TextStim({
-    win: psychoJS.window,
-    name: 'text_11',
-    text: 'Нажмите на верхней клавиатуре на цифру с правильным ответом.',
-    font: 'Arial',
-    units: undefined, 
-    pos: [0, 0.4], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
-    languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
-    depth: -2.0 
   });
   
   // Initialize components for Routine "insight_fake_solve"
@@ -2513,7 +2503,6 @@ function raven_1_testtRoutineBegin(snapshot) {
     raven_1_testtComponents = [];
     raven_1_testtComponents.push(key_raven_test);
     raven_1_testtComponents.push(img_raven_1_test);
-    raven_1_testtComponents.push(text_11);
     
     for (const thisComponent of raven_1_testtComponents)
       if ('status' in thisComponent)
@@ -2562,16 +2551,6 @@ function raven_1_testtRoutineEachFrame() {
       img_raven_1_test.frameNStart = frameN;  // exact frame index
       
       img_raven_1_test.setAutoDraw(true);
-    }
-    
-    
-    // *text_11* updates
-    if (t >= 0.0 && text_11.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      text_11.tStart = t;  // (not accounting for frame time here)
-      text_11.frameNStart = frameN;  // exact frame index
-      
-      text_11.setAutoDraw(true);
     }
     
     // check for quit (typically the Esc key)
