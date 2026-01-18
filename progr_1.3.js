@@ -316,7 +316,6 @@ psychoJS.start({
     {'name': 'pics/Disgust/disgust_10.png', 'path': 'pics/Disgust/disgust_10.png'},
     {'name': 'pics/Disgust/disgust_9.png', 'path': 'pics/Disgust/disgust_9.png'},
     {'name': 'tables/idioms1_cond1.xlsx', 'path': 'tables/idioms1_cond1.xlsx'},
-    {'name': 'tables/idioms2_cond1.xlsx', 'path': 'tables/idioms2_cond1.xlsx'},
     {'name': 'idioms/idioms_1/БЧ_О.png', 'path': 'idioms/idioms_1/БЧ_О.png'},
     {'name': 'idioms/idioms_1/ГНРЯ_Б.png', 'path': 'idioms/idioms_1/ГНРЯ_Б.png'},
     {'name': 'idioms/idioms_1/МНБК_Б.png', 'path': 'idioms/idioms_1/МНБК_Б.png'},
@@ -775,7 +774,7 @@ async function experimentInit() {
               return array;
           }
   faces_file = "tables/faces2_cond1.xlsx";
-  idioms_file = "tables/idioms2_cond1.xlsx";
+  idioms_file = "tables/idioms1_cond1.xlsx";
   faces_rows = await TrialHandler.importConditions(psychoJS.serverManager, faces_file);
   idioms_rows = await TrialHandler.importConditions(psychoJS.serverManager, idioms_file);
 
